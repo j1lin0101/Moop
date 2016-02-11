@@ -4,7 +4,7 @@ Mooper moop2 = new Mooper(350,250,true,255,0,0);
 int startingTime;
 
 public void setup(){
-  size(500,500);
+  size(1000,500);
   startingTime = millis();
   
 }
@@ -29,7 +29,8 @@ public void draw(){
   else{
     background(255);
     textSize(20);
-    text((minutes) + ":" + (seconds),430,30);
+    textAlign(RIGHT, TOP);
+    text((minutes) + ":" + (seconds),950,30);
     
     moop1.move();
     moop1.show();
