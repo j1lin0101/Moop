@@ -29,6 +29,7 @@ public void draw(){
     background(255);
     textSize(20);
     textAlign(RIGHT,TOP);
+    fill(50,55,100);
     text((seconds)+ " seconds",450,30);
     
     moop1.move();
