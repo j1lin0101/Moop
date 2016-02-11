@@ -16,10 +16,10 @@ public void draw(){
   if(gameOver == true){
     noLoop();
     background(0);
-    textSize(50);
+    textSize(40);
     fill(0, 200, 0);
     textAlign(CENTER);
-    text("MOOPER WINS!!!", 250, 180);
+    text("RED MOOPER WINS!!!", 250, 180);
     textSize(30);
     text("Time Un-MOOPED: " + (minutes) + ":" + (seconds), 250, 230);
     textSize(30);
