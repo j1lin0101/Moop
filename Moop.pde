@@ -6,7 +6,6 @@ int startingTime;
 public void setup(){
   size(500,500);
   startingTime = millis();
-  noStroke();
   
 }
 
@@ -26,6 +25,18 @@ public void draw(){
     text("Press R to Play Again", 250, 280);
 
   }
+  
+  else if(seconds == 30){
+    noLoop();
+    background(0);
+    textSize(40);
+    fill(0, 200, 0);
+    textAlign(CENTER);
+    text("Blue MOOPER WINS!!!", 250, 180);
+    textSize(30);
+    text("Press R to Play Again", 250, 280);
+  }
+  
   else{
     background(255);
     textSize(20);
