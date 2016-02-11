@@ -11,7 +11,6 @@ public void setup(){
 
 public void draw(){
   int seconds = (millis() - startingTime) / 1000;
-  int minutes = seconds / 60;
   
   if(gameOver == true){
     noLoop();
@@ -21,7 +20,7 @@ public void draw(){
     textAlign(CENTER);
     text("RED MOOPER WINS!!!", 250, 180);
     textSize(30);
-    text("Time Un-MOOPED: " + (minutes) + ":" + (seconds), 250, 230);
+    text("Time Un-MOOPED: " + (seconds), 250, 230);
     textSize(30);
     text("Press R to Play Again", 250, 280);
 
@@ -30,7 +29,7 @@ public void draw(){
     background(255);
     textSize(20);
     textAlign(RIGHT,TOP);
-    text((minutes) + ":" + (seconds),450,30);
+    text((seconds),450,30);
     
     moop1.move();
     moop1.show();
