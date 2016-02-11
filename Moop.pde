@@ -6,6 +6,7 @@ int startingTime;
 public void setup(){
   size(500,500);
   startingTime = millis();
+  noStroke();
   
 }
 
