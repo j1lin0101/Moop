@@ -1,24 +1,58 @@
-boolean gameOver = false;
-Mooper moop1 = new Mooper(150,250,false,50,55,100);
-Mooper moop2 = new Mooper(350,250,true,255,0,0);
+boolean menu;
+Button single, two;
+boolean overSingle, overTwo;
+boolean singlePlayer;
+color singleHighlight, twoHighlight;
+boolean gameOver;
+Mooper moop1, moop2; 
 int startingTime;
 
 public void setup(){
   size(500,500);
+  noStroke();
+  menu = true;
+  singleHighlight = color(255, 179, 179);
+  twoHighlight = color(179, 179, 255);
+  overSingle =false;
+  overTwo = false;
+  single = new Button(150,200,300,50,color(255,0,0));
+  two = new Button(150,400,400,50,color(0,0,255));
+  gameOver = false;
+  moop1 = new Mooper(150,250,false,50,55,100);
+  moop2 = new Mooper(350,250,true,255,0,0);
   startingTime = millis();
+  
   
 }
 
 public void draw(){
-  int seconds = (millis() - startingTime) / 1000;
-  
-  if(gameOver == true){
+    int seconds = (millis() - startingTime) / 1000;
+    /*if(menu == true){
+       single.show();
+       two.show();
+       update(mouseX, mouseY); 
+       background(0);
+       if (overSingle) {
+          fill(singleHighlight);
+        }
+        if (overTwo){
+           fill(twoHighlight);
+        }
+       textSize(40);
+       fill(0, 200, 0);
+       textAlign(CENTER);
+       text("Press 1 for Single Player", 250, 100);
+       text("Press 2 for Two Player", 250, 130);
+    }
+    
+  else*/ if(gameOver == true){
     noLoop();
-    background(0);
+    background(255);
     textSize(40);
-    fill(0, 200, 0);
+    fill(255,0,0);
     textAlign(CENTER);
     text("RED MOOPER WINS!!!", 250, 180);
+    fill(50,55,100);
     textSize(30);
     text("Time Un-MOOPED: " + (seconds) + " seconds", 250, 230);
     textSize(30);
@@ -28,12 +62,14 @@ public void draw(){
   
   else if(seconds == 30){
     noLoop();
-    background(0);
+    gameOver = true;
+    background(255);
     textSize(40);
-    fill(0, 200, 0);
+    fill(50,55,100);
     textAlign(CENTER);
     text("Blue MOOPER WINS!!!", 250, 180);
     textSize(30);
+    fill(255,0,0);
     text("Press R to Play Again", 250, 280);
   }
   
@@ -57,6 +93,22 @@ public void draw(){
 }
 }
 
+public void update(int x, int y) {
+   if( overButton(single.getX(), single.getY(), single.getLen(), single.getWidth())) {
+    overSingle = true;
+  } else if( overButton(two.getX(), two.getY(), two.getLen(), two.getWidth()) ) {
+    overTwo = true;
+  }
+}
+
+public boolean overButton(int x, int y, int width, int height)  {
+  if (mouseX >= x && mouseX <= x+width && 
+      mouseY >= y && mouseY <= y+height) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 public void keyPressed(){
     if(key == 'w'){
@@ -71,7 +123,7 @@ public void keyPressed(){
       if(key == 'd'){
         moop1.right(3);
       }
-      if(key == 'r' && gameOver){
+      if(key == 'r' && gameOver == true){
         startingTime = millis();
         moop1.setX(150);
         moop1.setY(250);
@@ -85,7 +137,6 @@ public void keyPressed(){
         loop();
        
       }
-      
       if(key == CODED){
           if(keyCode == UP){
             moop2.up(3);
@@ -132,8 +183,20 @@ public void keyReleased(){
       }
 }
 
+public void mousePressed(){
+  if (overSingle) {
+    menu = false;
+    singlePlayer = true;
+  }
+  if (overTwo) {
+    menu = false;
+    singlePlayer = false;
+  }
 
-class Mooper{
+}
+
+
+public class Mooper{
   private int myX, myY, moveX, moveY;
   private boolean isMooped;
   private color myColor;
@@ -201,5 +264,39 @@ class Mooper{
   public void down (double dAmount){moveY+=dAmount;} 
   
   public void left (double dAmount){moveX-=dAmount;}  
+  
+}
+
+public class Button{
+ 
+  private int buttonX,buttonY, len, wid;
+  private color buttonC;
+  
+  Button(int x, int y, int len, int wid, color c){
+    buttonX = x;
+    buttonY = y;
+    buttonC = c;
+  }
+  
+   public int getX(){return buttonX;}
+  
+   public int getY(){return buttonY;}
+   
+   public int getLen(){return len;}
+  
+   public int getWidth(){return wid;}
+   
+   public color getC(){return buttonC;}
+  
+   public void setX(int x){buttonX = x;}
+  
+   public void setY(int y){buttonY = y;}
+  
+   public void setC(color c){buttonC = c;}
+   
+   public void show(){
+     fill(buttonC);
+     rect(buttonX,buttonY,len,wid); 
+   }
   
 }
