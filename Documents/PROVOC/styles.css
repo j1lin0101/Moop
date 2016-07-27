@@ -1,155 +1,157 @@
-/*!
- * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
-
-/* Toggle Styles */
-
-body{
-  background-color:#f7f7f7;
-  color:#333333;
-}
-
-#wrapper {
-    padding-left: 0;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-#wrapper.toggled {
-    padding-left: 250px;
-}
-
-#sidebar-wrapper {
-    z-index: 1000;
-    position: fixed;
-    left: 250px;
-    width: 0;
+html, body{
+    background-color:#f7f7f7;
+    color:#333333;
+    font-family: 'Open Sans', sans-serif;
     height: 100%;
-    margin-left: -250px;
-    overflow-y: auto;
-    background: #222222;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    margin: 0;
 }
 
-#wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+@media screen and (max-width: 500px){
+
+    .sidenav {padding-top: 15px;}
+
+    .sidenav a {font-size: 18px;} 
+
+    .glyphicon-menu-hamburger{font-size: 12px;}
+
+    .logo img{max-width:275px;}
+
+    .social{
+        width: 100%;
+        text-align:center;
+    }
+
+    .social ul {position: relative;}
+    
+    .social ul li {
+        font-size: 15px;
+        display: block;
+    }
+
+    #volunteerlist{font-size: 14px;}
+
+    .carousel{
+        min-height: 510px;
+    }
+
+    .carousel .item{
+        min-height: 510px;
+        margin-bottom: 60px;
+        background-image: url("backgrounds/dark_embroidery.png");
+        background-repeat: repeat;
+    }
+
+    .carousel-indicators{
+        position:absolute;
+        bottom: 0;
+    }
+
+    .volunteer-link{
+        font-size: 15px;
+        position: absolute;
+        margin-bottom: 5%;
+        left:15%;
+        padding-bottom: 0;
+        padding-right: 0;
+    }
+
+    .candidate-thumb{max-height: 200px;}
+
+    iframe{
+        width: 100%;
+        height: 500px;
+    }
 }
 
-#page-content-wrapper {
-    width: 100%;
-    position: absolute;
-    padding: 15px;
+/* Navigation */
 
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
 }
 
-#wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -250px;
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
 }
 
-/* Sidebar Styles */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
 
-.sidebar-nav {
+.closebtn {
     position: absolute;
     top: 0;
-    width: 250px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    right: 25px;
+    font-size: 36px !important;
+    margin-left: 50px;
 }
 
-.sidebar-nav li {
-    text-indent: 20px;
-    line-height: 40px;
-    background: #222222;
+.main-navbar-wrapper{
+    line-height: 90px;
 }
 
-.sidebar-nav li a {
-    display: block;
-    text-decoration: none;
-    color: #999999;
+.navbar-header ul li {
+    display: inline-block;
 }
 
-.sidebar-nav li a:hover .social ul li a img:hover{
-    text-decoration: none;
-    color: #fff;
-    background: rgba(255,255,255,0.2);
+.logo img{
+    max-height:80px;
 }
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
-    text-decoration: none;
+.logo{
+    max-height: 90px;
 }
 
-.sidebar-nav > .sidebar-brand {
-    height: 65px;
-    font-size: 18px;
-    line-height: 60px;
-}
+.logo img.bottom {
+    vertical-align:text-bottom;
+  }
 
-.sidebar-nav > .sidebar-brand a {
-    color: #999999;
-}
-
-.sidebar-nav > .sidebar-brand a:hover {
-    color: #fff;
-    background: background: rgba(255,255,255,0.2);
-}
-
-@media(min-width:768px) {
-    #wrapper {
-        padding-left: 250px;
-    }
-
-    #wrapper.toggled {
-        padding-left: 0;
-    }
-
-    #sidebar-wrapper {
-        width: 250px;
-    }
-
-    #wrapper.toggled #sidebar-wrapper {
-        width: 0;
-    }
-
-    #page-content-wrapper {
-        padding: 20px;
-        position: relative;
-    }
-
-    #wrapper.toggled #page-content-wrapper {
-        position: relative;
-        margin-right: 0;
-    }
+#menu-toggle{
+    margin-top: 5%;
 }
 
 .white, .white a {
   color: #fff;
-  background: #222222; 
+  background-color: #222222;
+  }
+
+#volunteerlist {
+  color:white;
+}
+
+#volunteerlist:hover{
+  color:#DF6868;
 }
 
 .social {
-    margin: 0;
-    padding: 0;
+    margin:0;
+    display: table;
 }
 
 .social ul {
     margin: 0;
-    padding: 5px;
+    padding: 1%;
 }
 
 .social ul li {
-    margin: 5px;
+    margin: 0;
     list-style: none outside none;
     display: inline-block;
+    vertical-align: middle;
 }
 
 .social i {
@@ -171,15 +173,6 @@ body{
     -ms-transition: all ease 0.3s;
 }
 
-.social i:hover {
-    color: #FFF;
-    text-decoration: none;
-    transition: all ease 0.3s;
-    -moz-transition: all ease 0.3s;
-    -webkit-transition: all ease 0.3s;
-    -o-transition: all ease 0.3s;
-    -ms-transition: all ease 0.3s;
-}
 
 .social .fa-facebook:hover {
     background: #4060A5;
@@ -197,23 +190,229 @@ body{
     background: #5E2E7D;
 }
 
-#sign-up a{
-  color:white;
+.social .fa-instagram:hover{
+    background: #964B00;
 }
 
-#sign-up a:hover{
-  color:#DF6868;
+/* Footer */
+.bottom-social{
+    background: #222222;
+    color: #fff;
+    margin-top: 2%;
 }
 
-#mc_embed_signup{
-  background:#f7f7f7; 
-  clear:left; 
-  font:14px Helvetica,Arial,sans-serif; 
+.social-us{
+    width: 100%;
+    padding-top: 1%;
 }
 
-mark{
-  background-color: #f7f7f7; 
-  color: red;
-  font-weight: bold;
+.bottom-social i{
+    color: #fff;
+    font-size: 25px;
+}
 
+.bottom-social ul{
+    margin-top: 1%;
+    padding: 5px;
+}
+
+.bottom-social ul li {
+    margin-right: 1%;
+    margin-left: 1%;
+    list-style: none outside none;
+    display: inline-block;
+}
+
+.bottom-social i:hover{
+    opacity: .75;  
+}
+
+.bottom-menu{
+    font-size: 17px;
+}
+
+.bottom-menu li a{
+    color:#fff;
+}
+
+.glyphicon.glyphicon-one-fine-dot:before {
+    content: "\25cf";
+    font-size: 1em;
+}
+
+
+/* Homepage */
+
+.carousel{
+  height: 500px;
+  margin-bottom: 60px;
+}
+
+.logo-carousel img{width:500px;}
+
+.slide-wrapper-first{
+    margin-top: 3%;
+}
+
+.first{
+    height: 400px;
+    margin-bottom: 60px;
+    background-image: url("logo_background.png");
+}
+
+#first_title{
+    color: white;
+}
+
+#first_title:hover {
+    text-decoration: underline;
+}
+
+.reg{
+  height: 500px;
+  margin-bottom: 60px;
+  background-image: url("backgrounds/dark_embroidery.png");
+  background-repeat: repeat;
+}
+
+.carousel-caption {
+  z-index: 10;
+}
+
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+
+.slide-content{
+    color: white;
+}
+
+.slide-wrapper{
+    margin-top: 8%;
+}
+
+.candidate-thumb{
+    float: right;
+    max-height: 300px;
+}
+
+.slide-image .candidate-thumb img{
+    max-height: 290px;
+}
+
+.candidate-thumb-prof{
+    height: 200px;
+}
+
+.slide-image-prof .candidate-thumb-prof img{
+   height: 190px;
+}
+
+.letter-links ul li{
+    display: inline-block;
+}
+
+.candidate-heading{
+    padding-bottom: 4%;
+}
+
+.volunteer-link{
+    font-size: 20px;
+    position: absolute;
+    bottom: 0; 
+    right:0;
+    padding-bottom: 3%;
+    padding-right: 3%;
+}
+
+
+/* About */
+
+.team img{
+    width: 50%
+}
+
+.team-description{
+    text-align: justify;
+}
+
+.about{
+    text-align: justify;
+    font-size: 15px;
+}
+
+.teamSocial{
+    margin:0;
+    padding-top: 2%;
+}
+
+.teamSocial i{
+    width: 40px;
+    height: 40px;
+    color: #222222;
+    background-color: #F7F7F7;
+    font-size: 22px;
+    text-align:center;
+    padding-top: 12px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    transition: all ease 0.3s;
+    -moz-transition: all ease 0.3s;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    -ms-transition: all ease 0.3s;
+}
+
+/* Candidates */
+
+.cover_photo{ 
+    display: block;
+    align: middle;
+}
+
+.cover_photo img{
+    height: 278px;    
+}
+
+.cover_photo img:hover{
+    opacity: 0.5;
+}
+
+#biography img{
+    width:75%;
+}
+
+.candidate_social{
+    background-image: url("backgrounds/stardust.png");
+    background-repeat: repeat;
+    color: #fff;
+    margin-top: 1%;
+    padding-bottom: 1%;
+}
+
+.btn-lg{
+    margin-bottom: 1%;
+}
+
+/* Volunteer List */
+.candidates{
+    margin-top: 1%;
+}
+
+.candidate_list{
+    width: 70%;
+}
+
+.candidate_list:hover{
+    opacity: .75;
 }
